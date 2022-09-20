@@ -1,11 +1,21 @@
 
 import './employees-add-form.css'
 
+
+let onIncrease = () => {
+
+    let formData = new FormData(document.forms.person);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/url");
+    xhr.send(formData);
+
+}
+
 const InputForm = () =>{
     return(
         <div className="app-add-form">
             <h3>Registration</h3>
-            <form
+            <form name='person'>
                 className="add-form d-flex">
                 <input type="text"
                        className="form-control new-post-label"
@@ -16,15 +26,13 @@ const InputForm = () =>{
                 <input type="text"
                        className="form-control new-post-label"
                        placeholder="Enter your patronymic" />
-                <input type="number"
+                <input type="integer"
                        className="form-control new-post-label"
                        placeholder="RNTRC" />
-                <h2>JJJJ</h2>
                 <input type="checkbox" required="true" placeholder="save your credentials"/>
-
-
                 <button type="submit"
-                        className="btn btn-outline-light">Save</button>
+                        className="btn btn-outline-light"
+                        onClick={onIncrease}>Save</button>
             </form>
         </div>
     )
